@@ -13,7 +13,7 @@
     "package": "com.aliyun.imagesearch20180319",
     "packageInfo": {
       "description": "Alibaba Cloud image search (20180319) SDK for Java",
-      "url": "https://github.com/aliyun/alibabacloud-sdk",
+      "url": "https://github.com/aliyun/alibabacloud-java-sdk",
       "licenseNmae": "The Apache License, Version 2.0",
       "licenseUrl": "http://www.apache.org/licenses/LICENSE-2.0.txt",
       "developerId": "aliyunproducts",
@@ -23,15 +23,17 @@
   },
   "releases": {
     "java": "com.aliyun:imagesearch20180319:1.0.1",
-    "go": "github.com/alibabacloud-go/imagesearch-20180319/client:vpatch",
+    "go": "imagesearch-20180319/v2/client:v2.0.0",
     "csharp": "AlibabaCloud.SDK.ImageSearch20180319:1.0.1",
     "ts": "@alicloud/imagesearch20180319:1.0.1",
     "php": "alibabacloud/imagesearch-20180319:1.0.1",
-    "python": "alibabacloud_imagesearch20180319:1.0.0"
+    "python": "alibabacloud_imagesearch20180319:1.0.0",
+    "cpp": "alibabacloud-sdk-cpp/imagesearch-20180319:1.0.0"
   },
   "libraries": {
     "ROA": "alibabacloud:ROA:*",
     "Util": "darabonba:Util:*",
+    "ROAUtil": "alibabacloud:ROAUtil:*",
     "EndpointUtil": "alibabacloud:EndpointUtil:*"
   },
   "python": {
@@ -40,7 +42,7 @@
     "packageInfo": {
       "name": "alibabacloud_imagesearch20180319",
       "desc": "Alibaba Cloud image search (20180319) SDK Library for Python",
-      "github": "https://github.com/aliyun/alibabacloud-sdk",
+      "github": "https://github.com/aliyun/alibabacloud-python-sdk",
       "author": "Alibaba Cloud SDK",
       "email": "sdk-team@alibabacloud.com"
     }
@@ -66,5 +68,15 @@
         "LICENSE": "../LICENSE"
       }
     }
-  }
+  },
+  "cpp": {
+    "packageInfo": {
+      "git": {
+        "scope": "alibabacloud-sdk-cpp",
+        "project": "imagesearch-20180319"
+      }
+    }
+  },
+  "productId": "ImageSearch",
+  "apiVersions": "2018-03-19"
 }
