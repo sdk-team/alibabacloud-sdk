@@ -77,5 +77,6 @@
     }
   },
   "productId": "imageenhan",
-  "apiVersions": "20190930"
+  "apiVersions": "2019-09-30",
+  "version": "patch"
 }
