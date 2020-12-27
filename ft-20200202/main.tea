@@ -1,0 +1,142 @@
+/**
+ *
+ */
+import Util;
+import OpenApi;
+
+import EndpointUtil;
+
+extends OpenApi;
+
+init(config: OpenApi.Config){
+  super(config);
+  @endpointRule = 'regional';
+  
+@endpointMap = {
+    ap-northeast-2-pop = 'ft.aliyuncs.com',
+    ap-south-1 = 'ft.aliyuncs.com',
+    ap-southeast-1 = 'ft.aliyuncs.com',
+    ap-southeast-2 = 'ft.aliyuncs.com',
+    ap-southeast-3 = 'ft.aliyuncs.com',
+    ap-southeast-5 = 'ft.aliyuncs.com',
+    cn-beijing = 'ft.aliyuncs.com',
+    cn-beijing-finance-1 = 'ft.aliyuncs.com',
+    cn-beijing-finance-pop = 'ft.aliyuncs.com',
+    cn-beijing-gov-1 = 'ft.aliyuncs.com',
+    cn-beijing-nu16-b01 = 'ft.aliyuncs.com',
+    cn-chengdu = 'ft.aliyuncs.com',
+    cn-edge-1 = 'ft.aliyuncs.com',
+    cn-fujian = 'ft.aliyuncs.com',
+    cn-haidian-cm12-c01 = 'ft.aliyuncs.com',
+    cn-hangzhou-bj-b01 = 'ft.aliyuncs.com',
+    cn-hangzhou-finance = 'ft.aliyuncs.com',
+    cn-hangzhou-internal-prod-1 = 'ft.aliyuncs.com',
+    cn-hangzhou-internal-test-1 = 'ft.aliyuncs.com',
+    cn-hangzhou-internal-test-2 = 'ft.aliyuncs.com',
+    cn-hangzhou-internal-test-3 = 'ft.aliyuncs.com',
+    cn-hangzhou-test-306 = 'ft.aliyuncs.com',
+    cn-hongkong-finance-pop = 'ft.aliyuncs.com',
+    cn-huhehaote = 'ft.aliyuncs.com',
+    cn-huhehaote-nebula-1 = 'ft.aliyuncs.com',
+    cn-qingdao = 'ft.aliyuncs.com',
+    cn-qingdao-nebula = 'ft.aliyuncs.com',
+    cn-shanghai-et15-b01 = 'ft.aliyuncs.com',
+    cn-shanghai-et2-b01 = 'ft.aliyuncs.com',
+    cn-shanghai-finance-1 = 'ft.aliyuncs.com',
+    cn-shanghai-inner = 'ft.aliyuncs.com',
+    cn-shanghai-internal-test-1 = 'ft.aliyuncs.com',
+    cn-shenzhen-finance-1 = 'ft.aliyuncs.com',
+    cn-shenzhen-inner = 'ft.aliyuncs.com',
+    cn-shenzhen-st4-d01 = 'ft.aliyuncs.com',
+    cn-shenzhen-su18-b01 = 'ft.aliyuncs.com',
+    cn-wuhan = 'ft.aliyuncs.com',
+    cn-wulanchabu = 'ft.aliyuncs.com',
+    cn-yushanfang = 'ft.aliyuncs.com',
+    cn-zhangbei = 'ft.aliyuncs.com',
+    cn-zhangbei-na61-b01 = 'ft.aliyuncs.com',
+    cn-zhangjiakou-na62-a01 = 'ft.aliyuncs.com',
+    cn-zhengzhou-nebula-1 = 'ft.aliyuncs.com',
+    eu-central-1 = 'ft.aliyuncs.com',
+    eu-west-1 = 'ft.aliyuncs.com',
+    eu-west-1-oxs = 'ft.aliyuncs.com',
+    me-east-1 = 'ft.aliyuncs.com',
+    rus-west-1-pop = 'ft.aliyuncs.com',
+    us-west-1 = 'ft.aliyuncs.com',
+  };
+
+  checkConfig(config);
+  @endpoint = getEndpoint('ft', @regionId, @endpointRule, @network, @suffix, @endpointMap, @endpoint);
+}
+
+function getEndpoint(productId: string, regionId: string, endpointRule: string, network: string, suffix: string, endpointMap: map[string]string, endpoint: string) throws: string{
+  if (!Util.empty(endpoint)) {
+    return endpoint;
+  }
+
+  if (!Util.isUnset(endpointMap) && !Util.empty(endpointMap[regionId])) {
+    return endpointMap[regionId];
+  }
+  return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
+}
+model DefaultDegradeRuleRequest {
+  request?: string(name='Request'),
+  response?: string(name='Response'),
+  RT?: long(name='RT'),
+  responseSize?: int32(name='ResponseSize'),
+}
+
+model DefaultDegradeRuleResponseBody = {
+  requestId?: string(name='RequestId'),
+  size?: string(name='Size'),
+  value?: string(name='Value'),
+}
+
+model DefaultDegradeRuleResponse = {
+  headers: map[string]string(name='headers'),
+  body: DefaultDegradeRuleResponseBody(name='body'),
+}
+
+async function defaultDegradeRuleWithOptions(request: DefaultDegradeRuleRequest, runtime: Util.RuntimeOptions): DefaultDegradeRuleResponse {
+  Util.validateModel(request);
+  var req = new OpenApi.OpenApiRequest{ 
+    body = Util.toMap(request),
+  };
+  return doRPCRequest('DefaultDegradeRule', '2020-02-02', 'HTTPS', 'POST', 'AK', 'json', req, runtime);
+}
+
+async function defaultDegradeRule(request: DefaultDegradeRuleRequest): DefaultDegradeRuleResponse {
+  var runtime = new Util.RuntimeOptions{};
+  return defaultDegradeRuleWithOptions(request, runtime);
+}
+
+model DefaultDegradeRuleTestRequest {
+  request?: string(name='Request'),
+  response?: string(name='Response'),
+  RT?: long(name='RT'),
+  responseSize?: int32(name='ResponseSize'),
+}
+
+model DefaultDegradeRuleTestResponseBody = {
+  requestId?: string(name='RequestId'),
+  size?: string(name='Size'),
+  value?: string(name='Value'),
+}
+
+model DefaultDegradeRuleTestResponse = {
+  headers: map[string]string(name='headers'),
+  body: DefaultDegradeRuleTestResponseBody(name='body'),
+}
+
+async function defaultDegradeRuleTestWithOptions(request: DefaultDegradeRuleTestRequest, runtime: Util.RuntimeOptions): DefaultDegradeRuleTestResponse {
+  Util.validateModel(request);
+  var req = new OpenApi.OpenApiRequest{ 
+    body = Util.toMap(request),
+  };
+  return doRPCRequest('DefaultDegradeRuleTest', '2020-02-02', 'HTTPS', 'POST', 'AK', 'json', req, runtime);
+}
+
+async function defaultDegradeRuleTest(request: DefaultDegradeRuleTestRequest): DefaultDegradeRuleTestResponse {
+  var runtime = new Util.RuntimeOptions{};
+  return defaultDegradeRuleTestWithOptions(request, runtime);
+}
+
