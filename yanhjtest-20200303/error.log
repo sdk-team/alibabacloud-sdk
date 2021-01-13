@@ -1,0 +1,41 @@
+- PublishError: 72746c0f-a25f-4057-94c2-f3d0b2bd0f17 tea tea:
+
+[message] Command failed: dara publish
+
+
+[stdout] [34mPacking the package(alibabacloud-YanhjTest20200303-1.0.0)
+[0m
+dara notice
+dara notice alibabacloud/YanhjTest20200303:1.0.0
+[34mdara notice === Tarball Contents ===
+[0m
+  dara notice 2.99 KB	Teafile
+  dara notice 1.58 KB	main.tea
+[34mdara notice === Tarball Details ===
+[0m
+dara notice scope:		alibabacloud
+dara notice name:		YanhjTest20200303
+dara notice version:		1.0.0
+dara notice filename:		alibabacloud-YanhjTest20200303-1.0.0.tgz
+dara notice package size:	1.49 KB
+dara notice unpackage size:	4.58 KB
+dara notice shasum:		b21115de0d06404c215e27dceb09c57ca2c53c33021210519c803a651b100ad5
+dara notice total files:		2
+dara notice
+alibabacloud-YanhjTest20200303-1.0.0.tgz
+[34muploading the pack file
+[0m
+
+[31mError: AuthError: code: 401, AuthError reason: authorization error
+    at Object.newError (/usr/local/lib/node_modules/@darabonba/cli/node_modules/@alicloud/tea-typescript/dist/tea.js:189:12)
+    at Client.<anonymous> (/usr/local/lib/node_modules/@darabonba/cli/node_modules/@darabonba/repo-client/dist/client.js:547:28)
+    at Generator.next (<anonymous>)
+    at fulfilled (/usr/local/lib/node_modules/@darabonba/cli/node_modules/@darabonba/repo-client/dist/client.js:24:58)
+    at process._tickCallback (internal/process/next_tick.js:68:7)
+[0m
+
+
+[stderr] 
+
+-----------------
+
